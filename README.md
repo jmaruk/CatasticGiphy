@@ -1,4 +1,4 @@
-# giphyhmwk2
+# Awesome Cat Giph Generator!
 
 This application uses the Giphy API to find awesome cats. 
 

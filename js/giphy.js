@@ -5,7 +5,7 @@ var limit = "&limit=10";
 
 
 
-var topics = ['tabby', 'abysinnian', 'ragdoll', 'siamese', 'tuxedo cat'];
+var topics = ['tabby', 'russian blue', 'ragdoll', 'siamese', 'tuxedo cat'];
 var topicZone = $('#topics-zone');
 
 for(var i = 0; i < topics.length; i++) {
@@ -42,11 +42,13 @@ $('body').on('click', 'button', function() {
     console.log(response);
     var results = response.data;
     var gifZone = $('#gif-zone');
+    gifZone.empty();
     for(var j = 0; j < results.length; j++) {
       var stillGif = results[j].images.fixed_height_still.url;
-      var originalGif = results[j].images.original.url;
+      var originalGif = results[j].images.fixed_height.url;
       var gifImg = $('<img>');
       gifImg.attr({'src': stillGif,
+                    'state': "still",
                   'still': stillGif,
                   'animated': originalGif});
       gifZone.append(gifImg);
@@ -54,7 +56,19 @@ $('body').on('click', 'button', function() {
 
     $('img').on('click', function() {
       var animatedUrl = $(this).attr('animated');
-      $(this).attr('src', animatedUrl);
+      var stillUrl = $(this).attr('still');
+      var state = $(this).attr('state');
+      if (state === 'still') {
+        $(this).attr('state', 'animated');
+        $(this).attr('src', animatedUrl);
+          
+        }
+
+        else {
+          $(this).attr('state', 'still');
+        $(this).attr('src', stillUrl);
+        }
+
     });
    
 

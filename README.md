@@ -21,6 +21,6 @@ This application uses the Giphy API to find awesome cats.
     });
 ```
 
-This app uses an click handler on the image that looks at the state attribute to determine whether the clicked on giphs is playing, and if so changes the state to still.
+This app uses an click handler on the image that looks at the state attribute to determine whether the clicked on giphs is playing, and if so changes the state to still!
 
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
